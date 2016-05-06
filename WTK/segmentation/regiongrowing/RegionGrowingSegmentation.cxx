@@ -189,7 +189,7 @@ RegionGrowingSegmentation
   
   try 
   {
-    RegionGrowingSegmentationBase::WriteOutputImage( filename );
+	  RegionGrowingSegmentationBase::WriteOutputImage( mhdFileName.c_str() );
   }
   catch( ... ) 
   {
@@ -207,14 +207,14 @@ RegionGrowingSegmentation
 		m_MCFilter->ComputeNormalsOn();
 		m_MCFilter->SetValue(0, 1);
 
-	  //  m_SmoothFilter->SetInputConnection(m_MCFilter->GetOutputPort());
-      //  m_SmoothFilter->SetNumberOfIterations(300);
-      //  m_SmoothFilter->SetRelaxationFactor(0.1);
-      //  m_SmoothFilter->FeatureEdgeSmoothingOff();
-      //  m_SmoothFilter->BoundarySmoothingOn();
+	    m_SmoothFilter->SetInputConnection(m_MCFilter->GetOutputPort());
+        m_SmoothFilter->SetNumberOfIterations(100);
+        m_SmoothFilter->SetRelaxationFactor(0.1);
+        m_SmoothFilter->FeatureEdgeSmoothingOff();
+        m_SmoothFilter->BoundarySmoothingOn();
 
-	//	m_STLWriter->SetInputConnection(m_SmoothFilter->GetOutputPort());
-		m_STLWriter->SetInput(m_MCFilter->GetOutput());
+		m_STLWriter->SetInputConnection(m_SmoothFilter->GetOutputPort());
+		//m_STLWriter->SetInput(m_MCFilter->GetOutput());
 		m_STLWriter->SetFileTypeToBinary();
 		m_STLWriter->SetFileName(stlFileName.c_str());
 		m_STLWriter->Write();
