@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WtkApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkImageViewer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkImageViewerGUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkLightButton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkProgressBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkVTKImageViewer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkVTKImageViewerBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkVTKImageViewerGUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\fastmarching\FastMarchingLevelSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\fastmarching\FastMarchingLevelSetBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\fastmarching\FastMarchingLevelSetGUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\fastmarching2D\FM2D.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\fastmarching2D\FMBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\fastmarching2D\FMGUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkGlWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkImage2DViewerGUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\fltkImage2DViewerWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FltkImageViewer\vtkFlRenderWindowInteractor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\regiongrowing\RegionGrowingSegmentation.cxx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\regiongrowing\RegionGrowingSegmentationBase.cxx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation\regiongrowing\RegionGrowingSegmentationGUI.cxx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WtkApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TEST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkCommandEvents.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkImage2DViewer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkImageViewer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkImageViewerGUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkLightButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkProgressBar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkVTKImageViewerBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkVTKImageViewerGUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\GLSliceView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\SliceView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Itk\RegisterAllFactories.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\CustomColor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MACROS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\wtkutil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching\FastMarchingLevelSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching\FastMarchingLevelSetBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching\FastMarchingLevelSetGUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching\TEST_FastMarchingLevelSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching2D\FM2D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching2D\FMBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching2D\FMGUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\fastmarching2D\TEST_FMConsole.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkGlWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkImage2DViewerGUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkImage2DViewerWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkWidgetRedrawCommand.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\VTKImageViewer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\vtkFlRenderWindowInteractor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\regiongrowing\RegionGrowingSegmentation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\regiongrowing\RegionGrowingSegmentationBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\regiongrowing\RegionGrowingSegmentationGUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FltkImageViewer\fltkVTKImageViewer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentation\regiongrowing\TEST_RegionGrowing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="REAME.md" />
+    <None Include="segmentation\fastmarching\hierarchy.class.violet.html" />
+    <None Include="utils\FltkImageViewer\fltkImage2DViewer.txx" />
+    <None Include="segmentation\fastmarching2D\fastmarching.md" />
+    <None Include="segmentation\fastmarching2D\notes.md" />
+    <None Include="segmentation\fastmarching2D\test_FMConsole.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="segmentation\fastmarching\note.md" />
+    <None Include="segmentation\fastmarching\README.md" />
+    <None Include="utils\FltkImageViewer\fltkWidgetRedrawCommand.txx" />
+    <None Include="segmentation\log.md" />
+    <None Include="segmentation\README.md" />
+    <None Include="img\20150612143405.png">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

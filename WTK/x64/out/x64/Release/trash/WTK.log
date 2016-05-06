@@ -1,0 +1,43 @@
+﻿生成启动时间为 2016/5/6 15:42:10。
+     1>项目“D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\WTK\WTK.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“x64\out\x64\Release\trash\WTK.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\vs2010\VC\bin\x86_amd64\CL.exe /c /I.\utils\VtkFltk\ /I.\utils\Vtk\ /I.\utils\Itk\ /I.\utils\FltkImageViewer\ /I.\utils\ /I. /I"..\..\fltk-1.3.3-x64-release\include\\" /I"..\..\itk4.7.2-x64-release\include\ITK-4.7\\" /I"..\..\VTK5.10.1-x64-minSizeRel\include\vtk-5.10\\" /Zi /nologo /W1 /WX- /O2 /D _CRT_SECURE_NO_DEPRECATE /D WIN32 /D NDEBUG /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D VC_EXTRA_LEAN /D WIN32_EXTRA_LEAN /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\out\x64\Release\trash\\" /Fd"x64\out\x64\Release\trash\vc100.pdb" /Gd /TP /errorReport:prompt segmentation\regiongrowing\RegionGrowingSegmentation.cxx
+         RegionGrowingSegmentation.cxx
+       Link:
+         d:\vs2010\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\\out\x64\\x64\Release\WTK.exe" /NOLOGO /LIBPATH:"..\..\fltk-1.3.3-x64-release\lib\\" /LIBPATH:"..\..\itk4.7.2-x64-release\lib\\" /LIBPATH:"..\..\VTK5.10.1-x64-minSizeRel\lib\vtk-5.10\\" fltk.lib fltkforms.lib fltkgl.lib fltkimages.lib fltkjpeg.lib fltkpng.lib fltkzlib.lib "ITKBiasCorrection-4.7.lib" "ITKBioCell-4.7.lib" "ITKCommon-4.7.lib" "ITKDICOMParser-4.7.lib" "itkdouble-conversion-4.7.lib" "ITKEXPAT-4.7.lib" "ITKFEM-4.7.lib" "itkgdcmCommon-4.7.lib" "itkgdcmDICT-4.7.lib" "itkgdcmDSED-4.7.lib" "itkgdcmIOD-4.7.lib" "itkgdcmjpeg12-4.7.lib" "itkgdcmjpeg16-4.7.lib" "itkgdcmjpeg8-4.7.lib" "itkgdcmMSFF-4.7.lib" "ITKgiftiio-4.7.lib" "itkhdf5-4.7.lib" "itkhdf5_cpp-4.7.lib" "ITKIOBioRad-4.7.lib" "ITKIOBMP-4.7.lib" "ITKIOCSV-4.7.lib" "ITKIOGDCM-4.7.lib" "ITKIOGE-4.7.lib" "ITKIOGIPL-4.7.lib" "ITKIOHDF5-4.7.lib" "ITKIOImageBase-4.7.lib" "ITKIOIPL-4.7.lib" "ITKIOJPEG-4.7.lib" "ITKIOLSM-4.7.lib" "ITKIOMesh-4.7.lib" "ITKIOMeta-4.7.lib" "ITKIOMRC-4.7.lib" "ITKIONIFTI-4.7.lib" "ITKIONRRD-4.7.lib" "ITKIOPNG-4.7.lib" "ITKIOSiemens-4.7.lib" "ITKIOSpatialObjects-4.7.lib" "ITKIOStimulate-4.7.lib" "ITKIOTIFF-4.7.lib" "ITKIOTransformBase-4.7.lib" "ITKIOTransformHDF5-4.7.lib" "ITKIOTransformInsightLegacy-4.7.lib" "ITKIOTransformMatlab-4.7.lib" "ITKIOVTK-4.7.lib" "ITKIOXML-4.7.lib" "itkjpeg-4.7.lib" "ITKKLMRegionGrowing-4.7.lib" "ITKLabelMap-4.7.lib" "ITKMesh-4.7.lib" "ITKMetaIO-4.7.lib" "itkNetlibSlatec-4.7.lib" "ITKniftiio-4.7.lib" "ITKNrrdIO-4.7.lib" "itkopenjpeg-4.7.lib" "ITKOptimizers-4.7.lib" "ITKOptimizersv4-4.7.lib" "ITKPath-4.7.lib" "itkpng-4.7.lib" "ITKPolynomials-4.7.lib" "ITKQuadEdgeMesh-4.7.lib" "ITKSpatialObjects-4.7.lib" "ITKStatistics-4.7.lib" "itksys-4.7.lib" "itktiff-4.7.lib" "itkv3p_lsqr-4.7.lib" "itkv3p_netlib-4.7.lib" "itkvcl-4.7.lib" "ITKVideoCore-4.7.lib" "ITKVideoIO-4.7.lib" "itkvnl-4.7.lib" "ITKVNLInstantiation-4.7.lib" "itkvnl_algo-4.7.lib" "ITKVTK-4.7.lib" "ITKVtkGlue-4.7.lib" "ITKWatersheds-4.7.lib" "itkzlib-4.7.lib" "ITKznz-4.7.lib" LSDyna.lib MapReduceMPI.lib mpistubs.lib vtkalglib.lib vtkCharts.lib vtkCommon.lib vtkDICOMParser.lib vtkexoIIc.lib vtkexpat.lib vtkFiltering.lib vtkfreetype.lib vtkftgl.lib vtkGenericFiltering.lib vtkGeovis.lib vtkGraphics.lib vtkhdf5.lib vtkhdf5_hl.lib vtkHybrid.lib vtkImaging.lib vtkInfovis.lib vtkIO.lib vtkjpeg.lib vtklibxml2.lib vtkmetaio.lib vtkNetCDF.lib vtkNetCDF_cxx.lib vtkpng.lib vtkproj4.lib vtkRendering.lib vtksqlite.lib vtksys.lib vtktiff.lib vtkverdict.lib vtkViews.lib vtkVolumeRendering.lib vtkWidgets.lib vtkzlib.lib snmpapi.lib rpcrt4.lib wsock32.lib glu32.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\out\x64\Release\trash\WTK.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\out\x64\x64\Release\WTK.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\\out\x64\\x64\Release\WTK.lib" /MACHINE:X64 x64\out\x64\Release\trash\main.obj
+         x64\out\x64\Release\trash\FM2D.obj
+         x64\out\x64\Release\trash\FMBase.obj
+         x64\out\x64\Release\trash\FMGUI.obj
+         x64\out\x64\Release\trash\FastMarchingLevelSet.obj
+         x64\out\x64\Release\trash\FastMarchingLevelSetBase.obj
+         x64\out\x64\Release\trash\FastMarchingLevelSetGUI.obj
+         x64\out\x64\Release\trash\RegionGrowingSegmentation.obj
+         x64\out\x64\Release\trash\RegionGrowingSegmentationBase.obj
+         x64\out\x64\Release\trash\RegionGrowingSegmentationGUI.obj
+         x64\out\x64\Release\trash\fltkImageViewer.obj
+         x64\out\x64\Release\trash\fltkImageViewerGUI.obj
+         x64\out\x64\Release\trash\fltkGlWindow.obj
+         x64\out\x64\Release\trash\fltkImage2DViewerGUI.obj
+         x64\out\x64\Release\trash\fltkImage2DViewerWindow.obj
+         x64\out\x64\Release\trash\fltkLightButton.obj
+         x64\out\x64\Release\trash\fltkProgressBar.obj
+         x64\out\x64\Release\trash\fltkUtils.obj
+         x64\out\x64\Release\trash\fltkVTKImageViewer.obj
+         x64\out\x64\Release\trash\fltkVTKImageViewerBase.obj
+         x64\out\x64\Release\trash\fltkVTKImageViewerGUI.obj
+         x64\out\x64\Release\trash\vtkFlRenderWindowInteractor.obj
+         x64\out\x64\Release\trash\WtkApp.obj
+            正在创建库 D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\\out\x64\\x64\Release\WTK.lib 和对象 D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\\out\x64\\x64\Release\WTK.exp
+         WTK.vcxproj -> D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\\out\x64\\x64\Release\WTK.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\\out\x64\\x64\Release\WTK.exe;#1" /manifest x64\out\x64\Release\trash\WTK.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“x64\out\x64\Release\trash\WTK.unsuccessfulbuild”。
+         正在对“x64\out\x64\Release\trash\WTK.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\3dresearch\Wu-yj\Ultimate\Segment-part\WTK2\WTK-bk\WTK\WTK.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:09.65

@@ -1,0 +1,18 @@
+# include <FL/Fl.H>
+# include <FL/Fl_Shared_Image.H>
+# include <FL/Fl_Double_Window.H>
+# include <FL/Fl_Scroll.H>
+# include <FL/Fl_JPEG_Image.H>
+# include <FL/Fl_PNG_Image.H>
+# include <FL/Fl_Box.H>
+
+    fl_register_images();
+    Fl_Double_Window win(720,486);
+    Fl_Scroll scr(0,0,720,486);
+    Fl_PNG_Image png( "segmentation\\fastmarching\\test_overlay.png" );
+    if ( png.h() == 0 ) { perror( "segmentation\\fastmarching\\test_overlay.png" ); exit(1); }    // error check
+    Fl_Box box(0,0,png.w(),png.h());
+    box.image(png);
+    win.resizable(win);
+    win.show();
+    return(Fl::run());

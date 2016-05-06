@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C2B2127A-44B9-43B2-826C-050912B2E614}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>WTK</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(SolutionDir)\out\Win32\$(Configuration)\trash\</IntDir>
+    <OutDir>$(SolutionDir)\out\Win32\$(Configuration)\</OutDir>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>GlobalizationRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(SolutionDir)\out\Win32\$(Configuration)\trash\</IntDir>
+    <OutDir>$(SolutionDir)\out\Win32\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)\out\x64\\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Platform)\out\x64\$(Configuration)\trash\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)\out\x64\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(Platform)\out\x64\$(Configuration)\trash\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.\utils\VtkFltk\;.\utils\Vtk\;.\utils\Itk\;.\utils\FltkImageViewer\;.\utils\;..\..\fltk-1.3.3\win32_debug\include\;..\..\itk-4.7.1\Debug\include\ITK-4.7\;..\..\vtk-5.10.1\Debug\include\vtk-5.10\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\fltk-1.3.3\win32_debug\lib\;..\..\itk-4.7.1\Debug\lib\;..\..\vtk-5.10.1\Debug\lib\vtk-5.10\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fltkd.lib;fltk_formsd.lib;fltk_gld.lib;fltk_imagesd.lib;fltk_jpegd.lib;fltk_pngd.lib;fltk_zd.lib;ITKBiasCorrection-4.7.lib;ITKBioCell-4.7.lib;ITKCommon-4.7.lib;ITKDICOMParser-4.7.lib;itkdouble-conversion-4.7.lib;ITKEXPAT-4.7.lib;ITKFEM-4.7.lib;itkgdcmCommon-4.7.lib;itkgdcmDICT-4.7.lib;itkgdcmDSED-4.7.lib;itkgdcmIOD-4.7.lib;itkgdcmjpeg12-4.7.lib;itkgdcmjpeg16-4.7.lib;itkgdcmjpeg8-4.7.lib;itkgdcmMSFF-4.7.lib;ITKgiftiio-4.7.lib;itkhdf5-4.7.lib;itkhdf5_cpp-4.7.lib;ITKIOBioRad-4.7.lib;ITKIOBMP-4.7.lib;ITKIOCSV-4.7.lib;ITKIOGDCM-4.7.lib;ITKIOGE-4.7.lib;ITKIOGIPL-4.7.lib;ITKIOHDF5-4.7.lib;ITKIOImageBase-4.7.lib;ITKIOIPL-4.7.lib;ITKIOJPEG-4.7.lib;ITKIOLSM-4.7.lib;ITKIOMesh-4.7.lib;ITKIOMeta-4.7.lib;ITKIOMRC-4.7.lib;ITKIONIFTI-4.7.lib;ITKIONRRD-4.7.lib;ITKIOPNG-4.7.lib;ITKIOSiemens-4.7.lib;ITKIOSpatialObjects-4.7.lib;ITKIOStimulate-4.7.lib;ITKIOTIFF-4.7.lib;ITKIOTransformBase-4.7.lib;ITKIOTransformHDF5-4.7.lib;ITKIOTransformInsightLegacy-4.7.lib;ITKIOTransformMatlab-4.7.lib;ITKIOVTK-4.7.lib;ITKIOXML-4.7.lib;itkjpeg-4.7.lib;ITKKLMRegionGrowing-4.7.lib;ITKLabelMap-4.7.lib;ITKMesh-4.7.lib;ITKMetaIO-4.7.lib;itkNetlibSlatec-4.7.lib;ITKniftiio-4.7.lib;ITKNrrdIO-4.7.lib;itkopenjpeg-4.7.lib;ITKOptimizers-4.7.lib;ITKOptimizersv4-4.7.lib;ITKPath-4.7.lib;itkpng-4.7.lib;ITKPolynomials-4.7.lib;ITKQuadEdgeMesh-4.7.lib;ITKSpatialObjects-4.7.lib;ITKStatistics-4.7.lib;itksys-4.7.lib;itktiff-4.7.lib;itkv3p_lsqr-4.7.lib;itkv3p_netlib-4.7.lib;itkvcl-4.7.lib;ITKVideoCore-4.7.lib;ITKVideoIO-4.7.lib;itkvnl-4.7.lib;ITKVNLInstantiation-4.7.lib;itkvnl_algo-4.7.lib;ITKVTK-4.7.lib;ITKWatersheds-4.7.lib;itkzlib-4.7.lib;ITKznz-4.7.lib;LSDyna.lib;MapReduceMPI.lib;mpistubs.lib;vtkalglib.lib;vtkCharts.lib;vtkCommon.lib;vtkDICOMParser.lib;vtkexoIIc.lib;vtkexpat.lib;vtkFiltering.lib;vtkfreetype.lib;vtkftgl.lib;vtkGenericFiltering.lib;vtkGeovis.lib;vtkGraphics.lib;vtkhdf5.lib;vtkhdf5_hl.lib;vtkHybrid.lib;vtkImaging.lib;vtkInfovis.lib;vtkIO.lib;vtkjpeg.lib;vtklibxml2.lib;vtkmetaio.lib;vtkNetCDF.lib;vtkNetCDF_cxx.lib;vtkpng.lib;vtkproj4.lib;vtkRendering.lib;vtksqlite.lib;vtksys.lib;vtktiff.lib;vtkverdict.lib;vtkViews.lib;vtkVolumeRendering.lib;vtkWidgets.lib;vtkzlib.lib;snmpapi.lib;rpcrt4.lib;wsock32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\utils\VtkFltk\;.\utils\Vtk\;.\utils\Itk\;.\utils\FltkImageViewer\;.\utils\;.;..\..\fltk-1.3.3\win32_release\include\;..\..\itk-4.7.1\Release\include\ITK-4.7\;..\..\vtk-5.10.1\Release\include\vtk-5.10\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\fltk-1.3.3\win32_release\lib\;..\..\itk-4.7.1\Release\lib\;..\..\vtk-5.10.1\Release\lib\vtk-5.10\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fltk.lib;fltk_forms.lib;fltk_gl.lib;fltk_images.lib;fltk_jpeg.lib;fltk_png.lib;fltk_z.lib;ITKBiasCorrection-4.7.lib;ITKBioCell-4.7.lib;ITKCommon-4.7.lib;ITKDICOMParser-4.7.lib;itkdouble-conversion-4.7.lib;ITKEXPAT-4.7.lib;ITKFEM-4.7.lib;itkgdcmCommon-4.7.lib;itkgdcmDICT-4.7.lib;itkgdcmDSED-4.7.lib;itkgdcmIOD-4.7.lib;itkgdcmjpeg12-4.7.lib;itkgdcmjpeg16-4.7.lib;itkgdcmjpeg8-4.7.lib;itkgdcmMSFF-4.7.lib;ITKgiftiio-4.7.lib;itkhdf5-4.7.lib;itkhdf5_cpp-4.7.lib;ITKIOBioRad-4.7.lib;ITKIOBMP-4.7.lib;ITKIOCSV-4.7.lib;ITKIOGDCM-4.7.lib;ITKIOGE-4.7.lib;ITKIOGIPL-4.7.lib;ITKIOHDF5-4.7.lib;ITKIOImageBase-4.7.lib;ITKIOIPL-4.7.lib;ITKIOJPEG-4.7.lib;ITKIOLSM-4.7.lib;ITKIOMesh-4.7.lib;ITKIOMeta-4.7.lib;ITKIOMRC-4.7.lib;ITKIONIFTI-4.7.lib;ITKIONRRD-4.7.lib;ITKIOPNG-4.7.lib;ITKIOSiemens-4.7.lib;ITKIOSpatialObjects-4.7.lib;ITKIOStimulate-4.7.lib;ITKIOTIFF-4.7.lib;ITKIOTransformBase-4.7.lib;ITKIOTransformHDF5-4.7.lib;ITKIOTransformInsightLegacy-4.7.lib;ITKIOTransformMatlab-4.7.lib;ITKIOVTK-4.7.lib;ITKIOXML-4.7.lib;itkjpeg-4.7.lib;ITKKLMRegionGrowing-4.7.lib;ITKLabelMap-4.7.lib;ITKMesh-4.7.lib;ITKMetaIO-4.7.lib;itkNetlibSlatec-4.7.lib;ITKniftiio-4.7.lib;ITKNrrdIO-4.7.lib;itkopenjpeg-4.7.lib;ITKOptimizers-4.7.lib;ITKOptimizersv4-4.7.lib;ITKPath-4.7.lib;itkpng-4.7.lib;ITKPolynomials-4.7.lib;ITKQuadEdgeMesh-4.7.lib;ITKSpatialObjects-4.7.lib;ITKStatistics-4.7.lib;itksys-4.7.lib;itktiff-4.7.lib;itkv3p_lsqr-4.7.lib;itkv3p_netlib-4.7.lib;itkvcl-4.7.lib;ITKVideoCore-4.7.lib;ITKVideoIO-4.7.lib;itkvnl-4.7.lib;ITKVNLInstantiation-4.7.lib;itkvnl_algo-4.7.lib;ITKVTK-4.7.lib;ITKWatersheds-4.7.lib;itkzlib-4.7.lib;ITKznz-4.7.lib;LSDyna.lib;MapReduceMPI.lib;mpistubs.lib;vtkalglib.lib;vtkCharts.lib;vtkCommon.lib;vtkDICOMParser.lib;vtkexoIIc.lib;vtkexpat.lib;vtkFiltering.lib;vtkfreetype.lib;vtkftgl.lib;vtkGenericFiltering.lib;vtkGeovis.lib;vtkGraphics.lib;vtkhdf5.lib;vtkhdf5_hl.lib;vtkHybrid.lib;vtkImaging.lib;vtkInfovis.lib;vtkIO.lib;vtkjpeg.lib;vtklibxml2.lib;vtkmetaio.lib;vtkNetCDF.lib;vtkNetCDF_cxx.lib;vtkpng.lib;vtkproj4.lib;vtkRendering.lib;vtksqlite.lib;vtksys.lib;vtktiff.lib;vtkverdict.lib;vtkViews.lib;vtkVolumeRendering.lib;vtkWidgets.lib;vtkzlib.lib;snmpapi.lib;rpcrt4.lib;wsock32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <HeapReserveSize>100000000</HeapReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\utils\VtkFltk\;.\utils\Vtk\;.\utils\Itk\;.\utils\FltkImageViewer\;.\utils\;.;..\..\fltk-1.3.3-x64-release\include\;..\..\itk4.7.2-x64-release\include\ITK-4.7\;..\..\VTK5.10.1-x64-minSizeRel\include\vtk-5.10\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_WINDOWS;WIN32_LEAN_AND_MEAN;VC_EXTRA_LEAN;WIN32_EXTRA_LEAN</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\..\fltk-1.3.3-x64-release\lib\;..\..\itk4.7.2-x64-release\lib\;..\..\VTK5.10.1-x64-minSizeRel\lib\vtk-5.10\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fltk.lib;fltkforms.lib;fltkgl.lib;fltkimages.lib;fltkjpeg.lib;fltkpng.lib;fltkzlib.lib;ITKBiasCorrection-4.7.lib;ITKBioCell-4.7.lib;ITKCommon-4.7.lib;ITKDICOMParser-4.7.lib;itkdouble-conversion-4.7.lib;ITKEXPAT-4.7.lib;ITKFEM-4.7.lib;itkgdcmCommon-4.7.lib;itkgdcmDICT-4.7.lib;itkgdcmDSED-4.7.lib;itkgdcmIOD-4.7.lib;itkgdcmjpeg12-4.7.lib;itkgdcmjpeg16-4.7.lib;itkgdcmjpeg8-4.7.lib;itkgdcmMSFF-4.7.lib;ITKgiftiio-4.7.lib;itkhdf5-4.7.lib;itkhdf5_cpp-4.7.lib;ITKIOBioRad-4.7.lib;ITKIOBMP-4.7.lib;ITKIOCSV-4.7.lib;ITKIOGDCM-4.7.lib;ITKIOGE-4.7.lib;ITKIOGIPL-4.7.lib;ITKIOHDF5-4.7.lib;ITKIOImageBase-4.7.lib;ITKIOIPL-4.7.lib;ITKIOJPEG-4.7.lib;ITKIOLSM-4.7.lib;ITKIOMesh-4.7.lib;ITKIOMeta-4.7.lib;ITKIOMRC-4.7.lib;ITKIONIFTI-4.7.lib;ITKIONRRD-4.7.lib;ITKIOPNG-4.7.lib;ITKIOSiemens-4.7.lib;ITKIOSpatialObjects-4.7.lib;ITKIOStimulate-4.7.lib;ITKIOTIFF-4.7.lib;ITKIOTransformBase-4.7.lib;ITKIOTransformHDF5-4.7.lib;ITKIOTransformInsightLegacy-4.7.lib;ITKIOTransformMatlab-4.7.lib;ITKIOVTK-4.7.lib;ITKIOXML-4.7.lib;itkjpeg-4.7.lib;ITKKLMRegionGrowing-4.7.lib;ITKLabelMap-4.7.lib;ITKMesh-4.7.lib;ITKMetaIO-4.7.lib;itkNetlibSlatec-4.7.lib;ITKniftiio-4.7.lib;ITKNrrdIO-4.7.lib;itkopenjpeg-4.7.lib;ITKOptimizers-4.7.lib;ITKOptimizersv4-4.7.lib;ITKPath-4.7.lib;itkpng-4.7.lib;ITKPolynomials-4.7.lib;ITKQuadEdgeMesh-4.7.lib;ITKSpatialObjects-4.7.lib;ITKStatistics-4.7.lib;itksys-4.7.lib;itktiff-4.7.lib;itkv3p_lsqr-4.7.lib;itkv3p_netlib-4.7.lib;itkvcl-4.7.lib;ITKVideoCore-4.7.lib;ITKVideoIO-4.7.lib;itkvnl-4.7.lib;ITKVNLInstantiation-4.7.lib;itkvnl_algo-4.7.lib;ITKVTK-4.7.lib;ITKVtkGlue-4.7.lib;ITKWatersheds-4.7.lib;itkzlib-4.7.lib;ITKznz-4.7.lib;LSDyna.lib;MapReduceMPI.lib;mpistubs.lib;vtkalglib.lib;vtkCharts.lib;vtkCommon.lib;vtkDICOMParser.lib;vtkexoIIc.lib;vtkexpat.lib;vtkFiltering.lib;vtkfreetype.lib;vtkftgl.lib;vtkGenericFiltering.lib;vtkGeovis.lib;vtkGraphics.lib;vtkhdf5.lib;vtkhdf5_hl.lib;vtkHybrid.lib;vtkImaging.lib;vtkInfovis.lib;vtkIO.lib;vtkjpeg.lib;vtklibxml2.lib;vtkmetaio.lib;vtkNetCDF.lib;vtkNetCDF_cxx.lib;vtkpng.lib;vtkproj4.lib;vtkRendering.lib;vtksqlite.lib;vtksys.lib;vtktiff.lib;vtkverdict.lib;vtkViews.lib;vtkVolumeRendering.lib;vtkWidgets.lib;vtkzlib.lib;snmpapi.lib;rpcrt4.lib;wsock32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="segmentation\fastmarching2D\FM2D.cpp" />
+    <ClCompile Include="segmentation\fastmarching2D\FMBase.cpp" />
+    <ClCompile Include="segmentation\fastmarching2D\FMGUI.cpp" />
+    <ClCompile Include="segmentation\fastmarching\FastMarchingLevelSet.cpp" />
+    <ClCompile Include="segmentation\fastmarching\FastMarchingLevelSetBase.cpp" />
+    <ClCompile Include="segmentation\fastmarching\FastMarchingLevelSetGUI.cpp" />
+    <ClCompile Include="segmentation\regiongrowing\RegionGrowingSegmentation.cxx" />
+    <ClCompile Include="segmentation\regiongrowing\RegionGrowingSegmentationBase.cxx" />
+    <ClCompile Include="segmentation\regiongrowing\RegionGrowingSegmentationGUI.cxx" />
+    <ClCompile Include="utils\FltkImageViewer\fltkImageViewer.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkImageViewerGUI.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkGlWindow.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkImage2DViewerGUI.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkImage2DViewerWindow.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkLightButton.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkProgressBar.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkUtils.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkVTKImageViewer.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkVTKImageViewerBase.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\fltkVTKImageViewerGUI.cpp" />
+    <ClCompile Include="utils\FltkImageViewer\vtkFlRenderWindowInteractor.cpp" />
+    <ClCompile Include="WtkApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="segmentation\fastmarching2D\FM2D.h" />
+    <ClInclude Include="segmentation\fastmarching2D\FMBase.h" />
+    <ClInclude Include="segmentation\fastmarching2D\FMGUI.h" />
+    <ClInclude Include="segmentation\fastmarching2D\TEST_FMConsole.h" />
+    <ClInclude Include="segmentation\fastmarching\FastMarchingLevelSet.h" />
+    <ClInclude Include="segmentation\fastmarching\FastMarchingLevelSetBase.h" />
+    <ClInclude Include="segmentation\fastmarching\FastMarchingLevelSetGUI.h" />
+    <ClInclude Include="segmentation\fastmarching\TEST_FastMarchingLevelSet.h" />
+    <ClInclude Include="segmentation\regiongrowing\RegionGrowingSegmentation.h" />
+    <ClInclude Include="segmentation\regiongrowing\RegionGrowingSegmentationBase.h" />
+    <ClInclude Include="segmentation\regiongrowing\RegionGrowingSegmentationGUI.h" />
+    <ClInclude Include="segmentation\regiongrowing\TEST_RegionGrowing.h" />
+    <ClInclude Include="utils\CustomColor.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkImage2DViewer.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkCommandEvents.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkGlWindow.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkImage2DViewerGUI.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkImage2DViewerWindow.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkImageViewer.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkImageViewerGUI.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkLightButton.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkProgressBar.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkUtils.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkVTKImageViewer.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkVTKImageViewerBase.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkVTKImageViewerGUI.h" />
+    <ClInclude Include="utils\FltkImageViewer\fltkWidgetRedrawCommand.h" />
+    <ClInclude Include="utils\FltkImageViewer\GLSliceView.h" />
+    <ClInclude Include="utils\FltkImageViewer\SliceView.h" />
+    <ClInclude Include="utils\Itk\RegisterAllFactories.h" />
+    <ClInclude Include="utils\MACROS.h" />
+    <ClInclude Include="utils\FltkImageViewer\vtkFlRenderWindowInteractor.h" />
+    <ClInclude Include="TEST.h" />
+    <ClInclude Include="utils\FltkImageViewer\VTKImageViewer.h" />
+    <ClInclude Include="utils\wtkutil.h" />
+    <ClInclude Include="WtkApp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\20150612143405.png" />
+    <None Include="REAME.md" />
+    <None Include="segmentation\fastmarching2D\fastmarching.md" />
+    <None Include="segmentation\fastmarching2D\notes.md" />
+    <None Include="segmentation\fastmarching2D\test_FMConsole.png" />
+    <None Include="segmentation\fastmarching\hierarchy.class.violet.html" />
+    <None Include="segmentation\fastmarching\note.md" />
+    <None Include="segmentation\fastmarching\README.md" />
+    <None Include="segmentation\log.md" />
+    <None Include="segmentation\README.md" />
+    <None Include="utils\FltkImageViewer\fltkImage2DViewer.txx" />
+    <None Include="utils\FltkImageViewer\fltkWidgetRedrawCommand.txx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

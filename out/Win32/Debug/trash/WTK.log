@@ -1,0 +1,57 @@
+﻿生成启动时间为 6/25/2015 3:55:36 PM。
+     1>项目“D:\Documents\ACA\WTK\WTK\WTK\WTK.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /I.\utils\VtkFltk\ /I.\utils\Vtk\ /I.\utils\Itk\ /I.\utils\FltkImageViewer\ /I.\utils\ /I"..\..\fltk-1.3.3\win32_debug\include\\" /I"..\..\itk-4.7.1\Debug\include\ITK-4.7\\" /I"..\..\vtk-6.2.0\Debug\include\vtk-6.2\\" /ZI /nologo /W3 /WX- /Od /Oy- /D CODE_ANALYSIS /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_DEPRECATE /D _SCL_SECURE_NO_DEPRECATE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\\" /Fd"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt WtkApp.cpp main.cpp segmentation\fastmarching2D\FM2D.cpp segmentation\fastmarching\FastMarchingLevelSet.cpp utils\FltkImageViewer\fltkImageViewer.cpp utils\FltkImageViewer\fltkImageViewerGUI.cpp utils\FltkImageViewer\fltkVTKImageViewer.cpp
+         fltkVTKImageViewer.cpp
+         fltkImageViewerGUI.cpp
+     1>d:\documents\aca\wtk\wtk\wtk\utils\fltkimageviewer\fltkimageviewergui.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         fltkImageViewer.cpp
+         FastMarchingLevelSet.cpp
+         FM2D.cpp
+         main.cpp
+         WtkApp.cpp
+         正在生成代码...
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\WTK.exe" /INCREMENTAL /NOLOGO /LIBPATH:"..\..\fltk-1.3.3\win32_debug\lib\\" /LIBPATH:"..\..\itk-4.7.1\Debug\lib\\" /LIBPATH:"..\..\vtk-6.2.0\Debug\lib\\" fltkd.lib fltk_formsd.lib fltk_gld.lib fltk_imagesd.lib fltk_jpegd.lib fltk_pngd.lib fltk_zd.lib "ITKBiasCorrection-4.7.lib" "ITKBioCell-4.7.lib" "ITKCommon-4.7.lib" "ITKDICOMParser-4.7.lib" "itkdouble-conversion-4.7.lib" "ITKEXPAT-4.7.lib" "ITKFEM-4.7.lib" "itkgdcmCommon-4.7.lib" "itkgdcmDICT-4.7.lib" "itkgdcmDSED-4.7.lib" "itkgdcmIOD-4.7.lib" "itkgdcmjpeg12-4.7.lib" "itkgdcmjpeg16-4.7.lib" "itkgdcmjpeg8-4.7.lib" "itkgdcmMSFF-4.7.lib" "ITKgiftiio-4.7.lib" "itkhdf5-4.7.lib" "itkhdf5_cpp-4.7.lib" "ITKIOBioRad-4.7.lib" "ITKIOBMP-4.7.lib" "ITKIOCSV-4.7.lib" "ITKIOGDCM-4.7.lib" "ITKIOGE-4.7.lib" "ITKIOGIPL-4.7.lib" "ITKIOHDF5-4.7.lib" "ITKIOImageBase-4.7.lib" "ITKIOIPL-4.7.lib" "ITKIOJPEG-4.7.lib" "ITKIOLSM-4.7.lib" "ITKIOMesh-4.7.lib" "ITKIOMeta-4.7.lib" "ITKIOMRC-4.7.lib" "ITKIONIFTI-4.7.lib" "ITKIONRRD-4.7.lib" "ITKIOPNG-4.7.lib" "ITKIOSiemens-4.7.lib" "ITKIOSpatialObjects-4.7.lib" "ITKIOStimulate-4.7.lib" "ITKIOTIFF-4.7.lib" "ITKIOTransformBase-4.7.lib" "ITKIOTransformHDF5-4.7.lib" "ITKIOTransformInsightLegacy-4.7.lib" "ITKIOTransformMatlab-4.7.lib" "ITKIOVTK-4.7.lib" "ITKIOXML-4.7.lib" "itkjpeg-4.7.lib" "ITKKLMRegionGrowing-4.7.lib" "ITKLabelMap-4.7.lib" "ITKMesh-4.7.lib" "ITKMetaIO-4.7.lib" "itkNetlibSlatec-4.7.lib" "ITKniftiio-4.7.lib" "ITKNrrdIO-4.7.lib" "itkopenjpeg-4.7.lib" "ITKOptimizers-4.7.lib" "ITKOptimizersv4-4.7.lib" "ITKPath-4.7.lib" "itkpng-4.7.lib" "ITKPolynomials-4.7.lib" "ITKQuadEdgeMesh-4.7.lib" "ITKSpatialObjects-4.7.lib" "ITKStatistics-4.7.lib" "itksys-4.7.lib" "itktiff-4.7.lib" "itkv3p_lsqr-4.7.lib" "itkv3p_netlib-4.7.lib" "itkvcl-4.7.lib" "ITKVideoCore-4.7.lib" "ITKVideoIO-4.7.lib" "itkvnl-4.7.lib" "ITKVNLInstantiation-4.7.lib" "itkvnl_algo-4.7.lib" "ITKVTK-4.7.lib" "ITKWatersheds-4.7.lib" "itkzlib-4.7.lib" "ITKznz-4.7.lib" "vtkalglib-6.2.lib" "vtkChartsCore-6.2.lib" "vtkCommonColor-6.2.lib" "vtkCommonComputationalGeometry-6.2.lib" "vtkCommonCore-6.2.lib" "vtkCommonDataModel-6.2.lib" "vtkCommonExecutionModel-6.2.lib" "vtkCommonMath-6.2.lib" "vtkCommonMisc-6.2.lib" "vtkCommonSystem-6.2.lib" "vtkCommonTransforms-6.2.lib" "vtkDICOMParser-6.2.lib" "vtkDomainsChemistry-6.2.lib" "vtkexoIIc-6.2.lib" "vtkexpat-6.2.lib" "vtkFiltersAMR-6.2.lib" "vtkFiltersCore-6.2.lib" "vtkFiltersExtraction-6.2.lib" "vtkFiltersFlowPaths-6.2.lib" "vtkFiltersGeneral-6.2.lib" "vtkFiltersGeneric-6.2.lib" "vtkFiltersGeometry-6.2.lib" "vtkFiltersHybrid-6.2.lib" "vtkFiltersHyperTree-6.2.lib" "vtkFiltersImaging-6.2.lib" "vtkFiltersModeling-6.2.lib" "vtkFiltersParallel-6.2.lib" "vtkFiltersParallelImaging-6.2.lib" "vtkFiltersProgrammable-6.2.lib" "vtkFiltersSelection-6.2.lib" "vtkFiltersSMP-6.2.lib" "vtkFiltersSources-6.2.lib" "vtkFiltersStatistics-6.2.lib" "vtkFiltersTexture-6.2.lib" "vtkFiltersVerdict-6.2.lib" "vtkfreetype-6.2.lib" "vtkftgl-6.2.lib" "vtkGeovisCore-6.2.lib" "vtkgl2ps-6.2.lib" "vtkGUISupportMFC-6.2.lib" "vtkhdf5-6.2.lib" "vtkhdf5_hl-6.2.lib" "vtkImagingColor-6.2.lib" "vtkImagingCore-6.2.lib" "vtkImagingFourier-6.2.lib" "vtkImagingGeneral-6.2.lib" "vtkImagingHybrid-6.2.lib" "vtkImagingMath-6.2.lib" "vtkImagingMorphological-6.2.lib" "vtkImagingSources-6.2.lib" "vtkImagingStatistics-6.2.lib" "vtkImagingStencil-6.2.lib" "vtkInfovisCore-6.2.lib" "vtkInfovisLayout-6.2.lib" "vtkInteractionImage-6.2.lib" "vtkInteractionStyle-6.2.lib" "vtkInteractionWidgets-6.2.lib" "vtkIOAMR-6.2.lib" "vtkIOCore-6.2.lib" "vtkIOEnSight-6.2.lib" "vtkIOExodus-6.2.lib" "vtkIOExport-6.2.lib" "vtkIOGeometry-6.2.lib" "vtkIOImage-6.2.lib" "vtkIOImport-6.2.lib" "vtkIOInfovis-6.2.lib" "vtkIOLegacy-6.2.lib" "vtkIOLSDyna-6.2.lib" "vtkIOMINC-6.2.lib" "vtkIOMovie-6.2.lib" "vtkIONetCDF-6.2.lib" "vtkIOParallel-6.2.lib" "vtkIOParallelXML-6.2.lib" "vtkIOPLY-6.2.lib" "vtkIOSQL-6.2.lib" "vtkIOVideo-6.2.lib" "vtkIOXML-6.2.lib" "vtkIOXMLParser-6.2.lib" "vtkjpeg-6.2.lib" "vtkjsoncpp-6.2.lib" "vtklibxml2-6.2.lib" "vtkLocalExample-6.2.lib" "vtkmetaio-6.2.lib" "vtkNetCDF-6.2.lib" "vtkNetCDF_cxx-6.2.lib" "vtkoggtheora-6.2.lib" "vtkParallelCore-6.2.lib" "vtkpng-6.2.lib" "vtkproj4-6.2.lib" "vtkRenderingAnnotation-6.2.lib" "vtkRenderingContext2D-6.2.lib" "vtkRenderingContextOpenGL-6.2.lib" "vtkRenderingCore-6.2.lib" "vtkRenderingFreeType-6.2.lib" "vtkRenderingFreeTypeOpenGL-6.2.lib" "vtkRenderingGL2PS-6.2.lib" "vtkRenderingImage-6.2.lib" "vtkRenderingLabel-6.2.lib" "vtkRenderingLIC-6.2.lib" "vtkRenderingLOD-6.2.lib" "vtkRenderingOpenGL-6.2.lib" "vtkRenderingVolume-6.2.lib" "vtkRenderingVolumeOpenGL-6.2.lib" "vtksqlite-6.2.lib" "vtksys-6.2.lib" "vtktiff-6.2.lib" "vtkverdict-6.2.lib" "vtkViewsContext2D-6.2.lib" "vtkViewsCore-6.2.lib" "vtkViewsInfovis-6.2.lib" "vtkzlib-6.2.lib" snmpapi.lib rpcrt4.lib wsock32.lib glu32.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Documents\ACA\WTK\WTK\out\Win32\Debug\WTK.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\WTK.lib" /MACHINE:X86 D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.exe.embed.manifest.res
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\main.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\FM2D.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\FMBase.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\FMGUI.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\FastMarchingLevelSet.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\FastMarchingLevelSetBase.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\FastMarchingLevelSetGUI.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkImageViewer.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkImageViewerGUI.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkGlWindow.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkImage2DViewerGUI.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkImage2DViewerWindow.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkLightButton.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkProgressBar.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkUtils.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkVTKImageViewer.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkVTKImageViewerBase.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\fltkVTKImageViewerGUI.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\vtkFlRenderWindowInteractor.obj
+         D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WtkApp.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.exe.embed.manifest" /manifest D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         WTK.vcxproj -> D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\WTK.exe
+       RunCodeAnalysis:
+         正在运行代码分析...
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe  /outputCulture:2052 /out:"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\WTK.exe.CodeAnalysisLog.xml" /file:"D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\WTK.exe" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /directory:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /ruleSet:"=GlobalizationRules.ruleset" /rulesetdirectory:"C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets" /rule:"-C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules" /searchgac /ignoreinvalidtargets /forceoutput /successfile /saveMessagesToReport:Active /timeout:120 
+         代码分析完成 -- 0 个错误，0 个警告
+       FinalizeBuildStatus:
+         正在删除文件“D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.unsuccessfulbuild”。
+         正在对“D:\Documents\ACA\WTK\WTK\\out\Win32\Debug\trash\WTK.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Documents\ACA\WTK\WTK\WTK\WTK.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:16.60

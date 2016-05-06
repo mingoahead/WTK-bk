@@ -1,0 +1,286 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0103
+header_name {.h} 
+code_name {.cxx}
+class ImageViewerGUI {open
+} {
+  Function {CreateGUI()} {open
+  } {
+    Fl_Window iviewWindow {open
+      xywh {423 521 260 375} box PLASTIC_DOWN_BOX color 0 labelsize 10 resizable visible
+    } {
+      Fl_Group glWindowGroup {
+        xywh {0 25 260 320}
+      } {
+        Fl_Choice orientationChoice {
+          callback {SetOrientation();} open
+          xywh {200 315 50 15} box PLASTIC_UP_BOX down_box PLASTIC_THIN_DOWN_BOX color 59 labelsize 10 textsize 10 hide deactivate
+        } {
+          menuitem {} {
+            label X
+            xywh {0 0 100 20}
+          }
+          menuitem {} {
+            label Y
+            xywh {0 0 100 20}
+          }
+          menuitem {} {
+            label Z
+            xywh {10 10 100 20}
+          }
+        }
+        Fl_Box {} {
+          label {3D Win}
+          xywh {0 25 260 250} box PLASTIC_DOWN_BOX
+          code0 {\#include <GLSliceView.h>}
+          code1 {CreateGLSliceView( glWindowGroup, o );}
+          class Fl_Gl_Window
+        }
+      }
+      Fl_Menu_Bar {} {open
+        xywh {0 0 260 25} box PLASTIC_UP_BOX down_box PLASTIC_UP_BOX color 59 selection_color 59
+        code0 {AddMenuBarOptions();}
+      } {
+        submenu {} {
+          label Filter open
+          xywh {0 0 100 20} labelsize 12
+          code0 {AddFilterMenuOptions();}
+        } {
+          menuitem {} {
+            label Value
+            callback {ImageMode(itk::IMG_VAL);}
+            xywh {0 0 100 20} labelsize 12
+          }
+          menuitem {} {
+            label Log
+            callback {ImageMode(itk::IMG_LOG);}
+            xywh {10 10 100 20} labelsize 12
+          }
+        }
+        submenu {} {
+          label Overlay
+          xywh {10 10 100 20} labelsize 12
+          code0 {AddFilterMenuOptions();}
+        } {
+          menuitem {} {
+            label Opacity
+            callback {ShowOverlayOpacityControl();}
+            xywh {10 10 100 20} labelsize 12
+          }
+        }
+      }
+      Fl_Value_Slider intensityWindowingMinSlider {
+        callback {SetIntensityWindowingMin(o->value());}
+        xywh {5 335 250 15} type {Horz Fill} box PLASTIC_UP_BOX color 59 selection_color 32 labeltype NO_LABEL labelsize 9 step 1 value 1 textsize 9
+      }
+      Fl_Value_Slider intensityWindowingMaxSlider {
+        callback {SetIntensityWindowingMax(o->value());}
+        xywh {5 355 250 15} type {Horz Fill} box PLASTIC_UP_BOX color 59 selection_color 47 labeltype NO_LABEL labelsize 9 step 1 value 1 textsize 9
+      }
+      Fl_Button {} {
+        label {Zoom In}
+        callback {ZoomIn();}
+        xywh {5 280 55 15} box PLASTIC_UP_BOX down_box PLASTIC_DOWN_BOX color 59 labelsize 10
+      }
+      Fl_Button {} {
+        label {Zoom Out}
+        callback {ZoomOut();}
+        xywh {5 305 55 15} box PLASTIC_UP_BOX down_box PLASTIC_DOWN_BOX color 59 selection_color 59 labelsize 10
+      }
+      Fl_Button {} {
+        label U
+        callback {ShiftUp();}
+        xywh {75 280 20 20} box DIAMOND_UP_BOX labelsize 10
+      }
+      Fl_Button {} {
+        label center
+        callback {CenterWindow();}
+        xywh {110 290 35 20} box PLASTIC_UP_BOX down_box PLASTIC_DOWN_BOX color 59 selection_color 59 labelsize 10
+      }
+      Fl_Button {} {
+        label R
+        callback {ShiftRight();}
+        xywh {85 290 20 20} box DIAMOND_UP_BOX labelsize 10
+      }
+      Fl_Button {} {
+        label L
+        callback {ShiftLeft();}
+        xywh {65 290 20 20} box DIAMOND_UP_BOX color 48 labelsize 10
+      }
+      Fl_Button {} {
+        label D
+        callback {ShiftDown();}
+        xywh {75 300 20 20} box DIAMOND_UP_BOX labelsize 10
+      }
+      Fl_Check_Button {} {
+        label {Image Values}
+        callback {ViewValue(o->value()); Update();}
+        xywh {155 280 25 25} down_box DOWN_BOX value 1 labelsize 10 when 1
+      }
+      Fl_Check_Button {} {
+        label {Image Information}
+        callback {ViewDetails(o->value()); Update();}
+        xywh {155 295 15 20} down_box DOWN_BOX labelsize 10 when 1
+      }
+      Fl_Check_Button {} {
+        label Crosshairs
+        callback {ViewCrosshairs(o->value()); Update();}
+        xywh {155 305 25 25} down_box DOWN_BOX value 1 labelsize 10 when 1
+      }
+    }
+    Fl_Window clickedPointsWindow {
+      label {Clicked Points} open
+      xywh {362 30 290 405} visible
+    } {
+      Fl_Browser clickedPointsBrowser {
+        xywh {10 15 270 345} textfont 4
+      }
+      Fl_Button {} {
+        label Update
+        callback {UpdateClickedPoints();}
+        xywh {27 370 65 25}
+      }
+      Fl_Button {} {
+        label Clear
+        callback {ClearClickedPoints();}
+        xywh {115 370 65 25}
+      }
+      Fl_Button {} {
+        label Close
+        callback {clickedPointsWindow->hide();}
+        xywh {200 370 65 25}
+      }
+    }
+    Fl_Window overlayOpacityControlWindow {
+      label {Overlay Opacity} open
+      xywh {691 578 380 70} box PLASTIC_UP_BOX color 59 labelsize 12 visible
+    } {
+      Fl_Button {} {
+        label Close
+        callback {overlayOpacityControlWindow->hide();}
+        xywh {135 44 110 16} box PLASTIC_UP_BOX down_box PLASTIC_DOWN_BOX color 0 labelsize 12
+      }
+      Fl_Value_Slider overlayOpacitySlider {
+        label Opacity
+        callback {SetOverlayOpacity( o->value() );} selected
+        xywh {10 19 360 16} type {Horz Fill} box PLASTIC_UP_BOX color 0 selection_color 21 labelsize 10 align 1 value 0.5
+      }
+    }
+  }
+  Function {CreateGLSliceView( Fl_Group *,Fl_Gl_Window * w )} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {AddMenuBarOptions(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {AddFilterMenuOptions()} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {AddFileMenuOptions()} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SetImage( itk::ImageBase<3> * img )} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {Show(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {Hide(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {Update(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {Synchronize(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ImageMode(itk::ImageModeType mode)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SelectSlice(unsigned int)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SetIntensityWindowingMin(float)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SetIntensityWindowingMax(float)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {CenterWindow(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ZoomIn(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ZoomOut(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ShiftUp(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ShiftDown(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ShiftLeft(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ShiftRight(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SetOrientation(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ShowClickedPointsWindow(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ClearClickedPoints(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ShowOverlayOpacityControl(void)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SetOverlayOpacity(float)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {UpdateClickedPoints()} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ViewDetails(bool)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ViewValue(bool)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {ViewCrosshairs(bool)} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+} 
