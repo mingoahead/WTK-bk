@@ -64,7 +64,9 @@ public:
   ShapeDetectionLevelSet();
   virtual ~ShapeDetectionLevelSet();
 
-  virtual void LoadInputImage();
+  virtual void Load();
+
+  virtual void SaveOutputImage();
 
   virtual void ShowConsole();
 

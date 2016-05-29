@@ -29,6 +29,7 @@ ShapeDetectionLevelSetBase
 {
 
   m_ImageReader                  = ImageReaderType::New();
+  m_ImageWriter                  = DataFileOutputImageWriterType::New();
 
   m_CastImageFilter = CastImageFilterType::New();
   m_CastImageFilter->SetInput( m_ImageReader->GetOutput() );
@@ -69,6 +70,20 @@ ShapeDetectionLevelSetBase
   m_ThresholdFilter->SetInsideValue(   1 );
   m_ThresholdFilter->SetOutsideValue(  0 );
 
+  m_OutputRescaler = DataFileOutputRescaleType::New();
+  m_OutputCastFilter = DataFileOutputCastFilterType::New();
+
+  m_OutputRescaler->SetInput( m_ThresholdFilter->GetOutput() );
+  m_OutputRescaler->SetOutputMinimum( 0 );
+	// m_OutputRescaler->SetOutputMaximum( itk::NumericTraits< DataFileOutputPixelType >::max() );
+  m_OutputRescaler->SetOutputMaximum( 1 );
+  std::cout << "itk::NumericTraits< DataFileOutputPixelType >::max() " << std::endl;
+  std::cout << itk::NumericTraits< DataFileOutputPixelType >::max()  << std::endl;
+
+  m_OutputCastFilter->SetInput( m_OutputRescaler->GetOutput() );
+
+  m_ImageWriter->SetInput( m_OutputCastFilter->GetOutput() );	
+
   m_SeedImage = SeedImageType::New();
 
   m_SeedValue = 0; // It must be set to the minus distance of the initial level set.
@@ -102,7 +117,7 @@ ShapeDetectionLevelSetBase
  ***********************************/
 void
 ShapeDetectionLevelSetBase 
-::LoadInputImage( const char * filename )
+::Load( const char * filename )
 {
   if( !filename )
   {
@@ -310,6 +325,22 @@ ShapeDetectionLevelSetBase
   m_FastMarchingFilter->Modified();
 }
 
+/*********************************
+*
+*  Save segmentation
+*
+*/
+
+void ShapeDetectionLevelSetBase
+	::SaveOutputImage(const char * filename)
+{
+	if( !filename ) {
+        return;
+    }
+
+    m_ImageWriter->SetFileName( filename );
+    m_ImageWriter->Update();
+}
 
 
 /************************************

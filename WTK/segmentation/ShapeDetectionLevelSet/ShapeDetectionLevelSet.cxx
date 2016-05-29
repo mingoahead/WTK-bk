@@ -154,7 +154,7 @@ ShapeDetectionLevelSet
  ***********************************/
 void
 ShapeDetectionLevelSet
-::LoadInputImage( void )
+::Load( void )
 {
 
   const char * filename = fl_file_chooser("Input Image filename","*.*","");
@@ -167,7 +167,7 @@ ShapeDetectionLevelSet
   
   try 
   {
-    ShapeDetectionLevelSetBase::LoadInputImage( filename );
+    ShapeDetectionLevelSetBase::Load( filename );
   }
   catch( itk::ExceptionObject & excp ) 
   {
@@ -189,6 +189,16 @@ ShapeDetectionLevelSet
 }
 
 
+/************************************
+ *
+ *  Save Output Image
+ *
+ ***********************************/
+void ShapeDetectionLevelSet
+	::SaveOutputImage()
+{
+
+}
 
  
 /************************************

@@ -4,7 +4,6 @@
 #define ShapeDetectionLevelSetGUI_h
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
-//#include <ShapeDetectionLevelSetBase.h>
 #include "ShapeDetectionLevelSetBase.h"
 #include <fltkLightButton.h>
 #include <FL/Fl_Group.H>
@@ -119,6 +118,8 @@ private:
   static void cb_Quit(Fl_Button*, void*);
   inline void cb_Load_i(Fl_Button*, void*);
   static void cb_Load(Fl_Button*, void*);
+  inline void cb_Save_i(Fl_Button*, void*);
+  static void cb_Save(Fl_Button*, void*);
 public:
   virtual ~ShapeDetectionLevelSetGUI();
   virtual void Quit( void );
@@ -133,5 +134,6 @@ public:
   virtual void ShowGradientMagnitudeImage( void );
   virtual void ShowEdgePotentialImage( void );
   virtual void ShowFastMarchingResultImage( void );
+  virtual void SaveOutputImage();
 };
 #endif

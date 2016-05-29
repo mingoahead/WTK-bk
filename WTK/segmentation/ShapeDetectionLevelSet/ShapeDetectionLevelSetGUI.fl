@@ -1,5 +1,5 @@
 # data file for the Fltk User Interface Designer (fluid)
-version 1.0103 
+version 1.0303 
 header_name {.h} 
 code_name {.cxx}
 class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
@@ -8,7 +8,7 @@ class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
   } {
     Fl_Window consoleWindow {
       label {Shape Detection Segmentation Level Set} open
-      xywh {495 138 795 305}
+      xywh {-937 189 795 305} type Double
       code0 {\#include <ShapeDetectionLevelSetBase.h>}
       code1 {\#include <fltkLightButton.h>} visible
     } {
@@ -63,9 +63,12 @@ class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
         Fl_Box {} {
           xywh {445 80 10 120} box UP_BOX color 4
         }
+        Fl_Box {} {
+          xywh {630 84 10 51} box UP_BOX color 4
+        }
       }
       Fl_Group controlsGroup {
-        xywh {0 5 785 240} deactivate
+        xywh {0 5 785 240} color 4 deactivate
       } {
         Fl_Light_Button inputImageButton {
           label Display
@@ -181,7 +184,7 @@ class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
         }
         Fl_Value_Input shapeDetectionPropagationScalingValueInput {
           label {Propagation Scaling}
-          callback {m_ShapeDetectionFilter->SetPropagationScaling( o->value() );} selected
+          callback {m_ShapeDetectionFilter->SetPropagationScaling( o->value() );}
           xywh {439 183 50 23} labelsize 12 align 8 maximum 10 step 0.1 value 1 textsize 12
         }
       }
@@ -200,8 +203,13 @@ class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
       }
       Fl_Button {} {
         label Load
-        callback {this->LoadInputImage();}
+        callback {this->Load();} selected
         xywh {30 25 81 35} box ROUND_UP_BOX labelsize 12 align 128
+      }
+      Fl_Button {} {
+        label Save
+        callback {this->SaveOutputImage();}
+        xywh {595 135 90 35} box ROUNDED_BOX labelsize 12
       }
     }
   }
@@ -209,11 +217,11 @@ class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
   } {
     code {} {}
   }
-  Function {Quit( void )} {return_type {virtual void}
+  Function {Quit( void )} {open return_type {virtual void}
   } {
     code {} {}
   }
-  Function {Load( void )} {return_type {virtual void}
+  Function {Load( void )} {open return_type {virtual void}
   } {
     code {} {}
   }
@@ -254,6 +262,10 @@ class ShapeDetectionLevelSetGUI {open : {public ShapeDetectionLevelSetBase}
     code {} {}
   }
   Function {ShowFastMarchingResultImage( void )} {return_type {virtual void}
+  } {
+    code {} {}
+  }
+  Function {SaveOutputImage()} {open return_type {virtual void}
   } {
     code {} {}
   }

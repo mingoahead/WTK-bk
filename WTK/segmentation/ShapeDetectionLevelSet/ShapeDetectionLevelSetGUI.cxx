@@ -164,10 +164,17 @@ void ShapeDetectionLevelSetGUI::cb_Quit(Fl_Button* o, void* v) {
 }
 
 void ShapeDetectionLevelSetGUI::cb_Load_i(Fl_Button*, void*) {
-  this->LoadInputImage();
+  this->Load();
 }
 void ShapeDetectionLevelSetGUI::cb_Load(Fl_Button* o, void* v) {
   ((ShapeDetectionLevelSetGUI*)(o->parent()->user_data()))->cb_Load_i(o,v);
+}
+
+void ShapeDetectionLevelSetGUI::cb_Save_i(Fl_Button*, void*) {
+  this->SaveOutputImage();
+}
+void ShapeDetectionLevelSetGUI::cb_Save(Fl_Button* o, void* v) {
+  ((ShapeDetectionLevelSetGUI*)(o->parent()->user_data()))->cb_Save_i(o,v);
 }
 
 ShapeDetectionLevelSetGUI::ShapeDetectionLevelSetGUI() {
@@ -238,9 +245,14 @@ ShapeDetectionLevelSetGUI::ShapeDetectionLevelSetGUI() {
         o->box(FL_UP_BOX);
         o->color((Fl_Color)4);
       } // Fl_Box* o
+      { Fl_Box* o = new Fl_Box(630, 84, 10, 51);
+        o->box(FL_UP_BOX);
+        o->color((Fl_Color)4);
+      } // Fl_Box* o
       Connectors->end();
     } // Fl_Group* Connectors
     { controlsGroup = new Fl_Group(0, 5, 785, 240);
+      controlsGroup->color((Fl_Color)4);
       controlsGroup->deactivate();
       { inputImageButton = new fltk::LightButton(35, 132, 70, 25, "Display");
         inputImageButton->type(0);
@@ -479,6 +491,11 @@ ShapeDetectionLevelSetGUI::ShapeDetectionLevelSetGUI() {
       o->callback((Fl_Callback*)cb_Load);
       o->align(Fl_Align(FL_ALIGN_WRAP));
     } // Fl_Button* o
+    { Fl_Button* o = new Fl_Button(595, 135, 90, 35, "Save");
+      o->box(FL_ROUNDED_BOX);
+      o->labelsize(12);
+      o->callback((Fl_Callback*)cb_Save);
+    } // Fl_Button* o
     consoleWindow->end();
   } // Fl_Double_Window* consoleWindow
 }
@@ -520,4 +537,7 @@ void ShapeDetectionLevelSetGUI::ShowEdgePotentialImage( void ) {
 }
 
 void ShapeDetectionLevelSetGUI::ShowFastMarchingResultImage( void ) {
+}
+
+void ShapeDetectionLevelSetGUI::SaveOutputImage() {
 }

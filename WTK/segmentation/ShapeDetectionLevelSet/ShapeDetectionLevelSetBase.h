@@ -27,7 +27,8 @@
 #include "itkBinaryThresholdImageFilter.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
-
+#include "itkRescaleIntensityImageFilter.h"
+#include "itkCastImageFilter.h"
 
 /**
  * \brief ShapeDetectionLevelSetsBase class that instantiate
@@ -107,13 +108,23 @@ public:
   typedef FastMarchingFilterType::NodeType                NodeType;
   typedef FastMarchingFilterType::NodeContainer           NodeContainer;
 
+  typedef short DataFileOutputPixelType;
+	
+  typedef itk::Image<DataFileOutputPixelType, ImageDimension> DataFileOutputImageType;
+  typedef itk::RescaleIntensityImageFilter< ThresholdedImageType, DataFileOutputImageType > DataFileOutputRescaleType;
+  typedef itk::CastImageFilter< DataFileOutputImageType, DataFileOutputImageType > DataFileOutputCastFilterType;
+  typedef itk::ImageFileWriter< DataFileOutputImageType > DataFileOutputImageWriterType;
+
 
 public:
   ShapeDetectionLevelSetBase();
   virtual ~ShapeDetectionLevelSetBase();
 
-  virtual void LoadInputImage()=0;
-  virtual void LoadInputImage(const char * filename);
+  virtual void Load()=0;
+  virtual void Load(const char * filename);
+
+  virtual void SaveOutputImage() = 0;
+  virtual void SaveOutputImage(const char * filename);
 
   virtual void ShowStatus(const char * text)=0;
 
@@ -139,6 +150,7 @@ protected:
 
 
   ImageReaderType::Pointer                    m_ImageReader;
+  DataFileOutputImageWriterType::Pointer      m_ImageWriter;
 
   bool                                        m_InputImageIsLoaded;
 
@@ -163,6 +175,9 @@ protected:
   InternalPixelType                           m_SeedValue;
 
   unsigned int                                m_NumberOfSeeds;
+
+  DataFileOutputRescaleType::Pointer		  m_OutputRescaler;
+  DataFileOutputCastFilterType::Pointer	      m_OutputCastFilter;
 
 };
 
