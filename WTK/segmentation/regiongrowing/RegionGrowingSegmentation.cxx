@@ -208,7 +208,7 @@ RegionGrowingSegmentation
 		m_MCFilter->SetValue(0, 1);
 
 	    m_SmoothFilter->SetInputConnection(m_MCFilter->GetOutputPort());
-        m_SmoothFilter->SetNumberOfIterations(100);
+        m_SmoothFilter->SetNumberOfIterations(200);
         m_SmoothFilter->SetRelaxationFactor(0.1);
         m_SmoothFilter->FeatureEdgeSmoothingOff();
         m_SmoothFilter->BoundarySmoothingOn();
