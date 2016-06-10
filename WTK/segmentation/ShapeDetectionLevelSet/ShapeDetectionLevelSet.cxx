@@ -19,6 +19,8 @@
 #include "ShapeDetectionLevelSet.h"
 #include <FL/Fl_File_Chooser.H>
 
+# include "vtkSmartPointer.h"
+# include "vtkMetaImageWriter.h"
 /************************************
  *
  *  Constructor
@@ -27,64 +29,91 @@
 ShapeDetectionLevelSet
 ::ShapeDetectionLevelSet()
 {
+	try{
+	  m_InputImageViewer.SetLabel("Input Image");
 
-  m_InputImageViewer.SetLabel("Input Image");
+	  m_ThresholdedImageViewer.SetLabel("Thresholded Image");
 
-  m_ThresholdedImageViewer.SetLabel("Thresholded Image");
+	  m_ZeroSetImageViewer.SetLabel("Fast Marching Output");
 
-  m_ZeroSetImageViewer.SetLabel("Fast Marching Output");
+	  m_FastMarchingImageViewer.SetLabel("Zero Set Image");
 
-  m_FastMarchingImageViewer.SetLabel("Zero Set Image");
+	  m_GradientMagnitudeImageViewer.SetLabel("Gradient Magnitude Image");
 
-  m_GradientMagnitudeImageViewer.SetLabel("Gradient Magnitude Image");
+	  m_EdgePotentialImageViewer.SetLabel("Edge Potential Image");
 
-  m_EdgePotentialImageViewer.SetLabel("Edge Potential Image");
+	  m_InputImageViewer.ClickSelectCallBack( ClickSelectCallback, (void *)this);
 
-  m_InputImageViewer.ClickSelectCallBack( ClickSelectCallback, (void *)this);
+	  // Initialize ITK filter with GUI values
+	  m_SigmoidFilter->SetAlpha( sigmoidAlphaValueInput->value() );
+	  m_SigmoidFilter->SetBeta(  sigmoidBetaValueInput->value()  );
 
-  // Initialize ITK filter with GUI values
-  m_SigmoidFilter->SetAlpha( sigmoidAlphaValueInput->value() );
-  m_SigmoidFilter->SetBeta(  sigmoidBetaValueInput->value()  );
+	  this->SetZeroSetValue( zeroSetValueInput->value() );
+	  m_ShapeDetectionFilter->SetNumberOfIterations( 
+			static_cast<unsigned int>( shapeDetectionIterationsValueInput->value() ) );
 
-  this->SetZeroSetValue( zeroSetValueInput->value() );
-  m_ShapeDetectionFilter->SetNumberOfIterations( 
-        static_cast<unsigned int>( shapeDetectionIterationsValueInput->value() ) );
+	  m_ShapeDetectionFilter->SetMaximumRMSError( 
+				   shapeDetectionRMSErrorValueInput->value() );
 
-  m_ShapeDetectionFilter->SetMaximumRMSError( 
-               shapeDetectionRMSErrorValueInput->value() );
+	  m_ShapeDetectionFilter->SetCurvatureScaling(
+				   shapeDetectionCurvatureScalingValueInput->value() );
 
-  m_ShapeDetectionFilter->SetCurvatureScaling(
-               shapeDetectionCurvatureScalingValueInput->value() );
+	  m_ShapeDetectionFilter->SetPropagationScaling(
+				   shapeDetectionPropagationScalingValueInput->value() );
 
-  m_ShapeDetectionFilter->SetPropagationScaling(
-               shapeDetectionPropagationScalingValueInput->value() );
+	  m_DerivativeFilter->SetSigma( sigmaValueInput->value() );
 
-  m_DerivativeFilter->SetSigma( sigmaValueInput->value() );
+	  m_FastMarchingFilter->SetStoppingValue( fastMarchingStoppingValueInput->value() );
 
-  m_FastMarchingFilter->SetStoppingValue( fastMarchingStoppingValueInput->value() );
+	  m_VTKSegmentedImageViewer = VTKImageViewerType::New();
+	  m_VTKSegmentedImageViewer->SetImage( m_ThresholdFilter->GetOutput() );
 
-  m_VTKSegmentedImageViewer = VTKImageViewerType::New();
-  m_VTKSegmentedImageViewer->SetImage( m_ThresholdFilter->GetOutput() );
+	  m_OutputLevelSetViewer.SetLabel("Output Level Set");
 
-  m_OutputLevelSetViewer.SetLabel("Output Level Set");
+	  // Connect Observers in the GUI 
+	  inputImageButton->Observe( m_ImageReader.GetPointer() );
+	  thresholdedImageButton->Observe( m_ThresholdFilter.GetPointer() );
+	  outputLevelSetButton->Observe( m_ShapeDetectionFilter.GetPointer() );
+	  gradientMagnitudeButton->Observe( m_DerivativeFilter.GetPointer() );
+	  edgePotentialButton->Observe( m_SigmoidFilter.GetPointer() );
+	  fastMarchingResultButton->Observe( m_FastMarchingFilter.GetPointer() );
 
-  // Connect Observers in the GUI 
-  inputImageButton->Observe( m_ImageReader.GetPointer() );
-  thresholdedImageButton->Observe( m_ThresholdFilter.GetPointer() );
-  outputLevelSetButton->Observe( m_ShapeDetectionFilter.GetPointer() );
-  gradientMagnitudeButton->Observe( m_DerivativeFilter.GetPointer() );
-  edgePotentialButton->Observe( m_SigmoidFilter.GetPointer() );
-  fastMarchingResultButton->Observe( m_FastMarchingFilter.GetPointer() );
+	  progressSlider->Observe( m_CastImageFilter.GetPointer() );
+	  progressSlider->Observe( m_DerivativeFilter.GetPointer() );
+	  progressSlider->Observe( m_ThresholdFilter.GetPointer() );
+	  progressSlider->Observe( m_SigmoidFilter.GetPointer() );
+	  progressSlider->Observe( m_ImageReader.GetPointer() );
+	  progressSlider->Observe( m_ShapeDetectionFilter.GetPointer() );
+	  progressSlider->Observe( m_FastMarchingFilter.GetPointer() );
+	  progressSlider->Observe( m_InputThresholdFilter.GetPointer() );
 
-  progressSlider->Observe( m_CastImageFilter.GetPointer() );
-  progressSlider->Observe( m_DerivativeFilter.GetPointer() );
-  progressSlider->Observe( m_ThresholdFilter.GetPointer() );
-  progressSlider->Observe( m_SigmoidFilter.GetPointer() );
-  progressSlider->Observe( m_ImageReader.GetPointer() );
-  progressSlider->Observe( m_ShapeDetectionFilter.GetPointer() );
-  progressSlider->Observe( m_FastMarchingFilter.GetPointer() );
-  progressSlider->Observe( m_InputThresholdFilter.GetPointer() );
-  
+	  m_IterationCounter = 0;
+
+	  m_AdaptorFilterMC = AdaptorFilterType::New();
+
+	  m_AdaptorFilterMC->SetInput(m_ThresholdFilter->GetOutput());
+	  m_AdaptorFilterMC->GetImporter()->SetDataScalarTypeToUnsignedChar();
+
+	  m_MCFilter        = vtkMarchingCubes::New();
+      m_MCFilter->SetInput(m_AdaptorFilterMC->GetOutput());
+      m_MCFilter->ComputeNormalsOn();
+      m_MCFilter->SetValue(0, 1);
+
+	  m_SmoothFilter    = vtkSmoothPolyDataFilter::New();
+	  m_SmoothFilter->SetInputConnection(m_MCFilter->GetOutputPort());
+	  m_SmoothFilter->SetInputConnection(m_MCFilter->GetOutputPort());
+      m_SmoothFilter->SetNumberOfIterations(30);
+      m_SmoothFilter->SetRelaxationFactor(0.1);
+      m_SmoothFilter->FeatureEdgeSmoothingOff();
+      m_SmoothFilter->BoundarySmoothingOn();
+
+	  m_STLWriter       = vtkSTLWriter::New();
+	  m_STLWriter->SetInputConnection(m_SmoothFilter->GetOutputPort());
+	  m_STLWriter->SetFileTypeToBinary();
+
+	}catch (...){
+		std::cerr << "Exception: FastMarchingLevelSet" << std::endl;
+	}
 
 }
 
@@ -197,6 +226,53 @@ ShapeDetectionLevelSet
 void ShapeDetectionLevelSet
 	::SaveOutputImage()
 {
+	const char * filename = fl_file_chooser("Output Image filename","*.*","");
+
+    if( !filename ) {
+        return;
+    }
+
+	std::string fileName = filename;
+
+	std::string mhdFileName = fileName + ".mhd";
+
+    this->ShowStatus("Saving output image file...");
+	// ITK write function;
+	try {
+        ShapeDetectionLevelSetBase::SaveOutputImage( mhdFileName.c_str() );
+    } catch( ... ) {
+        this->ShowStatus("Problems writing output file");
+        return;
+    }
+	// VTK save function
+	try {
+		std::string aMhdFilename = fileName + "vtk.mhd";
+		std::string aRawFilename = fileName + "vtk.raw";
+		vtkSmartPointer<vtkMetaImageWriter> writer = vtkSmartPointer<vtkMetaImageWriter>::New();
+		writer->SetInput(m_AdaptorFilterMC->GetOutput());
+		writer->SetFileName(aMhdFilename.c_str());
+		writer->SetRAWFileName(aRawFilename.c_str());
+		writer->Write();
+	}catch (...) {
+		this->ShowStatus("Problems writing output file");
+		return;
+	}
+
+	this->ShowStatus("Output Image Saved!");
+
+	// save stl file module
+	std::string stlFileName = fileName + ".stl" ;
+
+	m_AdaptorFilterMC->Update();
+
+	vtkImageData* pData = m_AdaptorFilterMC->GetOutput();
+
+    int *dims = pData->GetDimensions();
+	std::cout << dims[0] << ", " << dims[1] << ", " << dims[2] << std::endl;
+
+	m_STLWriter->SetFileTypeToBinary();
+	m_STLWriter->SetFileName(stlFileName.c_str());
+	m_STLWriter->Write();
 
 }
 

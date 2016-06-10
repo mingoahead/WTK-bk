@@ -19,9 +19,15 @@
 
 #include "ShapeDetectionLevelSetGUI.h"
 #include "fltkImageViewer.h"
-
+#include "itkMaskImageFilter.h"
 #include "fltkVTKImageViewer.h"
+#include "itkImageToVTKImageFilter.h"
 
+# include "VTKImageViewer.h"
+# include "vtkMarchingCubes.h"
+# include "vtkSTLWriter.h"
+# include "vtkPolyDataMapper.h"
+# include "vtkSmoothPolyDataFilter.h"
 
 /**
  * \brief ShapeDetectionLevelSet class that instantiate
@@ -59,6 +65,8 @@ public:
 
   typedef fltk::VTKImageViewer< ThresholdPixelType >       VTKImageViewerType;
 
+  typedef itk::Image< unsigned char, 3 >                   ImageType;
+  typedef itk::ImageToVTKImageFilter< ImageType >          AdaptorFilterType;
 
 public:
   ShapeDetectionLevelSet();
@@ -112,6 +120,11 @@ private:
 
   VTKImageViewerType::Pointer     m_VTKSegmentedImageViewer;
 
+  unsigned long                   m_IterationCounter;
+  AdaptorFilterType::Pointer      m_AdaptorFilterMC;
+  vtkMarchingCubes * m_MCFilter;
+  vtkSmoothPolyDataFilter *       m_SmoothFilter;
+  vtkSTLWriter *                  m_STLWriter;
 };
 
 
